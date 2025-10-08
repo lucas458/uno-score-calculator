@@ -186,6 +186,13 @@ function setModalDialogContents( header = '', content = '', actions = [] ){
 
 // Toggle Screen By ID
 function toggleScreenById(id, state = false){
+
+    if ( id == "screen_main" ){
+        const isDisabled = JOGADORES.length == 0;
+        document.querySelectorAll(".menu_button")[1].disabled = isDisabled; // Calcular
+        document.querySelectorAll(".menu_button")[2].disabled = isDisabled; // Reset
+    }
+
     document.getElementById( id ).classList.toggle("screen_active", state);
 }
 
@@ -1074,5 +1081,6 @@ onload = () => {
     generateCards();
     playerSortAZ();
     generatePlayerList();
+    toggleScreenById("screen_main", true);
 };
 
