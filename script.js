@@ -80,7 +80,18 @@ var JOGADORES = [
 
 
 
+function salvarEstado(){
+    localStorage.setItem('jogadores', JSON.stringify(JOGADORES));
+}
 
+function carregarEstado(){
+    const data = localStorage.getItem('jogadores');
+    if ( data ){
+        JOGADORES = JSON.parse(data);
+        playerSortAZ();
+        generatePlayerList(false);
+    }
+}
 
 
 
@@ -233,6 +244,7 @@ function onClickCardSave(){
     if ( JOGADORES[player_index_option] ){
         JOGADORES[player_index_option].cartas = tempCards;
         JOGADORES[player_index_option].score = getScoreByCardList(tempCards);
+        salvarEstado();
     }
 
 }
@@ -417,6 +429,8 @@ function createPlayer( nome = '', avatar_index = 0 ){
         'cartas': [],
         'score': 0
     });
+
+    salvarEstado();
 }
 
 function editPlayerByIndex( index = -1, nome = '', avatar_index = 0, score = 0 ){
@@ -425,6 +439,7 @@ function editPlayerByIndex( index = -1, nome = '', avatar_index = 0, score = 0 )
         JOGADORES[index].nome = nome;
         JOGADORES[index].avatar_index = avatar_index;
         JOGADORES[index].score = score;
+        salvarEstado();
     }
 
 }
@@ -1053,6 +1068,7 @@ document.querySelectorAll(".calc_player_wrapper").forEach(e => {
 
 
 onload = () => {
+    carregarEstado();
     generateCards();
     playerSortAZ();
     generatePlayerList();
