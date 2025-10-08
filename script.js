@@ -845,12 +845,7 @@ function generatePlayerList( animate = true ){
 
 
 function cardIsUsed( card_name ){
-    for (let playerIndex = 0; playerIndex < JOGADORES.length; playerIndex++){
-        if ( JOGADORES[playerIndex].cartas.indexOf(card_name) >= 0 ){
-            return playerIndex;
-        }
-    }
-    return -1;
+    return JOGADORES.findIndex(jogador => jogador.cartas.includes(card_name));
 }
 
 
