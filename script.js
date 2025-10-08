@@ -9,7 +9,7 @@ function getRandomInt(min, max) {
 
 
 
-
+const MAX_PLAYERS = 50;
 
 
 const CARTAS = [
@@ -191,6 +191,11 @@ function toggleScreenById(id, state = false){
         const isDisabled = JOGADORES.length == 0;
         document.querySelectorAll(".menu_button")[1].disabled = isDisabled; // Calcular
         document.querySelectorAll(".menu_button")[2].disabled = isDisabled; // Reset
+    }
+
+    if ( id == "screen_players" ){
+        const MAX_PLAYERS = 50;
+        toggleAddButton( JOGADORES.length < MAX_PLAYERS );
     }
 
     document.getElementById( id ).classList.toggle("screen_active", state);
@@ -439,6 +444,7 @@ function createPlayer( nome = '', avatar_index = 0 ){
     });
 
     salvarEstado();
+    toggleAddButton( JOGADORES.length < MAX_PLAYERS );
 }
 
 function editPlayerByIndex( index = -1, nome = '', avatar_index = 0, score = 0 ){
@@ -659,7 +665,7 @@ function generateAvatarButton( idx_selected = -1 ){
 
     addEditPlayer_avatar_list.innerHTML = '';
 
-    for (let i = 0; i < 10*5; i++){
+    for (let i = 0; i < MAX_PLAYERS; i++){
         const avatarX = Math.trunc(i % 10);
         const avatarY = Math.trunc(i / 10);
 
@@ -761,6 +767,7 @@ players_list.onmousedown = () => {
                         players_list.children[i].remove()
                     }, 250);
                     salvarEstado();
+                    toggleAddButton( JOGADORES.length < MAX_PLAYERS );
                 }
             ]);
         
