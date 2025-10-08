@@ -440,8 +440,6 @@ function onClickSaveAddEditPlayer(){
     // ADD PLAYER
     if ( modalMode == "add" ){
 
-        console.log("pass");
-
         can_save_player = document.querySelector("#addEditPlayer_avatar_list .addEditPlayer_avatar_selected") != null;
 
         if ( addEditPlayer_avatar_input.value.length == 0 ){
@@ -452,15 +450,7 @@ function onClickSaveAddEditPlayer(){
             can_save_player = false;
         }
 
-        if ( can_save_player && avatarSelectedIndex >= 0 ){
-            console.log("add mode");
-            JOGADORES.push({
-                'nome': addEditPlayer_avatar_input.value.trim(),
-                'avatar_index': avatarSelectedIndex,
-                'cartas': [],
-                'score': 0
-            });
-        } 
+        createPlayer( addEditPlayer_avatar_input.value.trim(), avatarSelectedIndex );
 
     }
 
@@ -477,12 +467,10 @@ function onClickSaveAddEditPlayer(){
             can_save_player = true;
         }
 
-        if ( can_save_player && player_index_option >= 0 ){
-            console.log("edit mode");
-            JOGADORES[player_index_option].nome = addEditPlayer_avatar_input.value.trim();
-            JOGADORES[player_index_option].avatar_index = getAvatarSelectedIndex();
-            JOGADORES[player_index_option].score = getScoreByCardList(JOGADORES[player_index_option].cartas);
-        }
+        editPlayerByIndex( player_index_option, 
+                            addEditPlayer_avatar_input.value.trim(), 
+                            avatarSelectedIndex, 
+                            JOGADORES[player_index_option].score );
 
     }
 
