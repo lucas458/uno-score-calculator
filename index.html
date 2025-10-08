@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UNO® Score Calculator</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="icon.webp" type="image/x-icon">
+
+</head>
+
+
+
+<body>
+
+    
+
+    <!-- 
+        https://icon-library.com/icon/free-avatar-icon-28.html
+    -->
+
+
+
+
+    
+
+
+    <!-- TELA CARTAS -->
+    <div class="screen" id="screen_cards">
+
+        <!-- HEADER -->
+        <div class="screen_header">
+            
+            <button class="screen_header_icon screen_header_button" onclick="onClickCardsBack()">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
+                </svg>
+            </button>
+            
+            <div class="screen_header_label">Cartas</div>
+
+        </div>
+
+
+
+        <!-- CONTENT -->
+        <div class="screen_content">
+            
+            <!-- CARD HEADER -->
+            <div id="card_header">
+                <button id="card_clear_selection" onclick="onClickCardClearSelection()">Limpar</button>
+            </div>
+
+
+            <!-- CARD COLOR WRAPPER -->
+            <div class="card_list_wrapper">
+                <div class="card_list_color">VERMELHO</div>
+                <div class="card_list"></div>
+            </div>
+
+            <!-- CARD COLOR WRAPPER -->
+            <div class="card_list_wrapper">
+                <div class="card_list_color">VERDE</div>
+                <div class="card_list"></div>
+            </div>
+
+            <!-- CARD COLOR WRAPPER -->
+            <div class="card_list_wrapper">
+                <div class="card_list_color">AZUL</div>
+                <div class="card_list"></div>
+            </div>
+
+            <!-- CARD COLOR WRAPPER -->
+            <div class="card_list_wrapper">
+                <div class="card_list_color">AMARELO</div>
+                <div class="card_list"></div>
+            </div>
+
+            <!-- CARD COLOR WRAPPER -->
+            <div class="card_list_wrapper">
+                <div class="card_list_color">ESPECIAIS</div>
+                <div class="card_list"></div>
+            </div>
+
+        </div>
+
+
+
+        <!-- FOOTER -->
+        <div class="screen_footer">
+            <button class="footer_button" id="cards_save_button" onclick="onClickCardSave()">SALVAR</button>
+        </div>
+
+
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- TELA JOGADORES  -->
+    <div class="screen" id="screen_players">
+
+        <!-- HEADER -->
+        <div class="screen_header">
+            
+            <button class="screen_header_icon screen_header_button" onclick="onClickMenuPlayersBack()">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
+                </svg>
+            </button>
+            
+            <div class="screen_header_label">Jogadores</div>
+
+        </div>
+
+        
+
+        <!-- CONTENT -->
+        <div class="screen_content">
+            
+
+            <!-- SEARCH BAR -->
+            <div id="player_search_wrapper">
+
+                <div id="player_search_input_wrapper">
+                    <input type="text" id="player_search_input" placeholder="Pesquisar" spellcheck="false">
+                </div>
+
+                <button id="player_search_button" disabled>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                        <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                    </svg>
+                </button>
+
+            </div>
+
+            <!-- LIST PLAYERS -->
+            <div id="players_list"></div>
+            
+
+        </div>
+
+
+
+        <!-- FOOTER -->
+        <div class="screen_footer">
+            
+            <div id="floatbutton_wrapper">
+                <button id="button_add" onclick="onClickAddPlayer()">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z"/>
+                    </svg>
+                </button>
+            </div>
+
+
+
+            <div id="snack">
+                <div id="snack_label" onclick="onClickSnack()"></div>
+            </div>
+
+
+
+        </div>
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- TELA CALCULAR  -->
+    <div class="screen" id="screen_calculate">
+        
+        <div class="screen_header">
+            
+            <button class="screen_header_icon screen_header_button" onclick="onClickMenuCalculateBack()">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
+                </svg>
+            </button>
+            
+            <div class="screen_header_label">Calcular</div>
+
+        </div>
+        
+        
+        <div class="screen_content"></div>
+        
+
+        <div class="screen_footer">
+            <button class="footer_button" id="calculate_save_button" onclick="">SALVAR RESULTADOS</button>
+        </div>
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- TELA PRINCIPAL -->
+    <div class="screen screen_active" id="screen_main">
+        <div class="screen_content">
+            <button class="menu_button" onclick="onClickMenuPlayers()">JOGADORES</button>
+            <button class="menu_button" onclick="onClickMenuCalculate()">CALCULAR</button>
+            <button class="menu_button" onclick="onClickMenuReset()">RESETAR</button>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- MODAL -- ADD/EDIT -->
+    <div class="modal" id="modal_addEditPlayer" mode="add">
+        <div class="modal_wrapper">
+            <div class="modal_blur" onclick=""></div>
+            
+            <div class="modal_window">
+                <div class="modal_header">Adicionar</div>
+                <div class="modal_content">
+                    <div id="addEditPlayer_avatar_list">
+                        <button class="addEditPlayer_avatar"></button> 
+                    </div>
+                    <div>Nome:</div>
+                    <div id="addEditPlayer_avatar_input_wrapper">
+                        <input type="text" id="addEditPlayer_avatar_input" placeholder="Digite" maxlength="32" spellcheck="false">
+                    </div>
+                    <div id="addEditPlayer_avatar_input_helper_wrapper">
+                        <div></div>
+                        <div>0/32</div>
+                    </div>
+                </div>
+
+                <div class="modal_footer">
+                    <button class="modal_button" onclick="toggleModalById('modal_addEditPlayer', false);toggleAddButton(true)">CANCELAR</button>
+                    <button class="modal_button" onclick="onClickSaveAddEditPlayer()">SALVAR</button>
+                </div>
+            </div> 
+
+        </div>
+    </div>
+
+
+
+
+    <!-- MODAL -- DIALOG BOX -->
+    <div class="modal" id="modal_dialogBox">
+ 
+        <div class="modal_wrapper">
+            <div class="modal_blur" onclick=""></div>
+            
+            <div class="modal_window">
+                <div class="modal_header">Deletar?</div>
+                <div class="modal_content">deseja Apagar tudo?</div>
+                <div class="modal_footer">
+                    <button class="modal_button">NÃO</button>
+                    <button class="modal_button">SIM</button>
+                </div>
+            </div> 
+
+        </div>
+
+    </div>
+
+
+
+
+
+
+    
+
+    <script src="script.js"></script>
+
+</body>
+</html>
