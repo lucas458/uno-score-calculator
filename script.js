@@ -407,7 +407,7 @@ function playerSortAZ(){
 
 
 function createPlayer( nome = '', avatar_index = 0 ){
-    if ( !can_save_player || avatarSelectedIndex < 0 ){
+    if ( !can_save_player || avatar_index < 0 ){
         return;
     } 
     
@@ -417,6 +417,16 @@ function createPlayer( nome = '', avatar_index = 0 ){
         'cartas': [],
         'score': 0
     });
+}
+
+function editPlayerByIndex( index = -1, nome = '', avatar_index = 0, score = 0 ){
+
+    if ( JOGADORES[index] != null && index >= 0 && avatar_index >= 0 ){ 
+        JOGADORES[index].nome = nome;
+        JOGADORES[index].avatar_index = avatar_index;
+        JOGADORES[index].score = score;
+    }
+
 }
 
 
