@@ -400,13 +400,7 @@ function scroll_avatar_list(){
 
 // Sort Player Array A-Z
 function playerSortAZ(){
-
-    JOGADORES.sort((a, b)=>{
-        if (a.nome > b.nome) return 1;
-        if (a.nome < b.nome) return -1;
-        return 0;
-    });
-
+    JOGADORES.sort((a, b) => a.nome.localeCompare(b.nome));
 }
 
 
