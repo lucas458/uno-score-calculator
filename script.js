@@ -276,6 +276,7 @@ function onClickMenuReset(){
         ()=>{ 
             toggleModalById("modal_dialogBox", false);
             JOGADORES = [];
+            salvarEstado();
         }
     
     ]);
