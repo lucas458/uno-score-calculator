@@ -581,8 +581,10 @@ player_search_input.oninput = () => {
 
         players_list.innerHTML = '';
 
+        const searchTerm = player_search_input.value.toLowerCase();
+
         JOGADORES.forEach(e => {
-            if ( e.nome.toLowerCase().indexOf( player_search_input.value.toLowerCase() ) >= 0 ){
+            if ( e.nome.toLowerCase().includes(searchTerm) ){
                 addPlayerToList(e, false);
             }
         });
