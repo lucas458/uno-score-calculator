@@ -764,3 +764,10 @@ body{
 .calc_player_card_list_visible{
     display: initial !important;
 }
+
+.calc_player_expand_button::before{
+    content: "MOSTRAR " !important;
+}
+.calc_player_wrapper:has(.calc_player_card_list.calc_player_card_list_visible) .calc_player_expand_button::before{
+    content: "OCULTAR " !important;
+}

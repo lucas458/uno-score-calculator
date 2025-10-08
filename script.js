@@ -989,7 +989,7 @@ function generateCalculatedPlayer( playerObject = JOGADORES[0] ){
             <div>SCORE:</div>
             <div>${playerObject.score}</div>
         </div>
-        <button class="calc_player_expand_button">MOSTRAR CARTAS</button>
+        <button class="calc_player_expand_button">CARTAS</button>
     </div>
     
     <div class="calc_player_card_list">
