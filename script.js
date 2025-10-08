@@ -406,6 +406,18 @@ function playerSortAZ(){
 
 
 
+function createPlayer( nome = '', avatar_index = 0 ){
+    if ( !can_save_player || avatarSelectedIndex < 0 ){
+        return;
+    } 
+    
+    JOGADORES.push({
+        'nome': nome,
+        'avatar_index': avatar_index,
+        'cartas': [],
+        'score': 0
+    });
+}
 
 
 // ADD/EDIT PLAYER -- SAVE BUTTON
