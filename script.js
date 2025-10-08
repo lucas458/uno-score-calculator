@@ -753,6 +753,7 @@ players_list.onmousedown = () => {
                     setTimeout(()=>{
                         players_list.children[i].remove()
                     }, 250);
+                    salvarEstado();
                 }
             ]);
         
